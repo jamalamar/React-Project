@@ -2,14 +2,7 @@ import React, { Component } from 'react';
 import Login from './Login/login.js';
 import MainContainer from './MainContainer/maincontainer.js';
 import './App.css';
-
-
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom';
-
+// import Auth from './Login/auth.js'
 
 class App extends Component {
   
@@ -28,8 +21,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <h1>Astronomy</h1>
-        {this.state.logged ? <MainContainer username={this.state.username}/> : <Login login={this.login}/>}
+      {this.state.logged ? <MainContainer username={this.state.username}/> : <Login login={this.login}/>}
       </div>
     );
   }
