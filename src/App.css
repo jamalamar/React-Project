@@ -31,3 +31,79 @@
     transform: rotate(360deg);
   }
 }
+
+body{
+  background-color: #000000;
+}
+
+.Explore{
+  font-size: 60px;
+}
+
+.Home{
+  font-size: 60px;
+}
+
+.Profile{
+  font-size: 60px;
+}
+
+img{
+  width: 100%;
+  border: solid 5px #fdfffc;
+  border-radius: 5%;
+  opacity: 1;
+}
+
+.Login{
+  display: flex; 
+  border-radius: 10%
+
+}
+
+.newsTittle {
+  color: #fdfffc;
+  position: relative;
+  bottom: 50px;
+}
+
+a{
+  color: #fdfffc;
+}
+
+a:hover{
+  opacity: 0.7;
+  color: #fdfffc;
+  }
+
+a:visited {
+  opacity: 0.3;
+}
+
+h1{
+  color: #fdfffc;
+  font-size: 60px;
+}
+
+h2{
+  color: #ffffff;
+}
+
+h3{
+  color: #fdfffc;
+}
+
+ul{
+  list-style: none;
+  color: #000000;
+  align-content: center;
+  padding-right: 25%;
+  padding-left: 25%
+}
+
+li{
+    margin-bottom: 100px;
+    background-color: #011627;
+    border-radius: 2%;
+    padding: 20px;
+}
