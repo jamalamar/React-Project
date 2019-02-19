@@ -64,10 +64,10 @@ getAstronomyPicture = async () => {
     <Menu fixed='top' inverted>
       <Container>
         <Menu.Item as='a' header>
-          <Link to="/home">Home</Link>{' '}
+          <Link to="/home">Home</Link>
         </Menu.Item>
         <Menu.Item as='a'>
-          <Link to="/explore">Explore</Link>{' '}
+          <Link to="/explore">Explore</Link>
         </Menu.Item>
         <Menu.Item>
           <Link to="/profile">Profile</Link>
