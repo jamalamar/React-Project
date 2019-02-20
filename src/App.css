@@ -48,11 +48,16 @@ body{
   font-size: 60px;
 }
 
-img{
+.HomeImage{
   width: 100%;
   border: solid 5px #fdfffc;
   border-radius: 5%;
   opacity: 1;
+}
+
+.ExploreImage{
+  width: 250px; 
+  height: 250px;
 }
 
 .Login{
@@ -61,10 +66,27 @@ img{
 
 }
 
-.newsTittle {
+.HomeImageTitle {
   color: #fdfffc;
   position: relative;
   bottom: 50px;
+}
+
+.ImageContainer{
+  height: auto;
+  width: auto;
+}
+
+.ProfileUl{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.ProfileLi{
+  padding-bottom: 5%;
+  display: flex;
+  justify-content: center;
 }
 
 a{
@@ -93,7 +115,7 @@ h3{
   color: #fdfffc;
 }
 
-ul{
+.HomeUl{
   list-style: none;
   color: #000000;
   align-content: center;
@@ -101,9 +123,21 @@ ul{
   padding-left: 25%
 }
 
-li{
+.HomeLi{
     margin-bottom: 100px;
     background-color: #011627;
     border-radius: 2%;
     padding: 20px;
 }
+
+
+
+
+
+
+
+
+
+
+
+

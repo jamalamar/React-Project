@@ -25,21 +25,19 @@ import Explore from './Explore/explore.js'
 import Profile from './Profile/profile.js'
 
 
-
-
-
 class MainContainer extends Component {
     state = {
     astronomyPicture: []
 
   }
 
+
 getAstronomyPicture = async () => {
   try{
     const astronomyPicture = await fetch('https://api.nasa.gov/planetary/apod?start_date=2019-01-01&api_key=D6NtYIn84Pp4G2ZZsGk6jMW1HkU7RCg7dSvqG5eg');
     const astronomyPictureJson = await astronomyPicture.json();
       this.setState({
-        astronomyPicture: astronomyPictureJson
+        astronomyPicture: astronomyPictureJson,
       });
       return astronomyPictureJson;
   
@@ -49,12 +47,11 @@ getAstronomyPicture = async () => {
     }
   }
 
+
   componentDidMount(){
       this.getAstronomyPicture()
       .then((data) => console.log(data, ' from APOD API'));
     }
-
-
 
 
   render() {
@@ -95,11 +92,11 @@ getAstronomyPicture = async () => {
 
 
 
-    <Container>
+    <Container className='ImageContainer'>
         <Header as='h1'>Semantic UI React Fixed Template</Header>
           <Route exact path="/home" render={(props) => <Home astronomyPicture={this.state.astronomyPicture} {...props} /> }/>
           <Route path="/explore" render={(props) => <Explore astronomyPicture={this.state.astronomyPicture} {...props} /> }/>
-          <Route path="/profile" render={(props) => <Profile astronomyPicture={this.state.astronomyPicture} {...props} /> }/>  
+          <Route path="/profile" render={(props) => <Profile astronomyPicture={this.state.astronomyPicture} users={this.props.users} {...props} /> }/>  
     </Container>
 
 
@@ -107,37 +104,17 @@ getAstronomyPicture = async () => {
     <Segment inverted vertical style={{ margin: '5em 0em 0em', padding: '5em 0em' }}>
       <Container textAlign='center'>
         <Grid divided inverted stackable>
-          <Grid.Column width={3}>
-            <Header inverted as='h4' content='Group 1' />
+          <Grid.Column width={8}>
+            <Header inverted as='h4' content='Contact' />
             <List link inverted>
-              <List.Item as='a'>Link One</List.Item>
-              <List.Item as='a'>Link Two</List.Item>
-              <List.Item as='a'>Link Three</List.Item>
-              <List.Item as='a'>Link Four</List.Item>
+              <List.Item as='a' href='https://www.linkedin.com/in/jamal-amar/' target='_blank'>Linked-In</List.Item>
+
             </List>
           </Grid.Column>
-          <Grid.Column width={3}>
-            <Header inverted as='h4' content='Group 2' />
-            <List link inverted>
-              <List.Item as='a'>Link One</List.Item>
-              <List.Item as='a'>Link Two</List.Item>
-              <List.Item as='a'>Link Three</List.Item>
-              <List.Item as='a'>Link Four</List.Item>
-            </List>
-          </Grid.Column>
-          <Grid.Column width={3}>
-            <Header inverted as='h4' content='Group 3' />
-            <List link inverted>
-              <List.Item as='a'>Link One</List.Item>
-              <List.Item as='a'>Link Two</List.Item>
-              <List.Item as='a'>Link Three</List.Item>
-              <List.Item as='a'>Link Four</List.Item>
-            </List>
-          </Grid.Column>
-          <Grid.Column width={7}>
-            <Header inverted as='h4' content='Footer Header' />
+          <Grid.Column width={8}>
+            <Header inverted as='h4' content='Created by Jamal' />
             <p>
-              Extra space for a call to action inside the footer that could help re-engage users.
+                Using Nasa's API. (APOD)
             </p>
           </Grid.Column>
         </Grid>
@@ -148,8 +125,8 @@ getAstronomyPicture = async () => {
           <List.Item as='a' href='#'>
             Site Map
           </List.Item>
-          <List.Item as='a' href='#'>
-            Contact Us
+          <List.Item as='a' href='https://www.linkedin.com/in/jamal-amar/' target='_blank'>
+            Contact Me
           </List.Item>
           <List.Item as='a' href='#'>
             Terms and Conditions
