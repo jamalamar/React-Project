@@ -18,6 +18,7 @@ class App extends Component {
     })
   }
 
+
   getUsers = async () => {
   try{
     const users = await fetch('http://localhost:8080/users');

@@ -34,7 +34,7 @@ class MainContainer extends Component {
 
 getAstronomyPicture = async () => {
   try{
-    const astronomyPicture = await fetch('https://api.nasa.gov/planetary/apod?start_date=2019-01-01&api_key=D6NtYIn84Pp4G2ZZsGk6jMW1HkU7RCg7dSvqG5eg');
+    const astronomyPicture = await fetch('https://api.nasa.gov/planetary/apod?count=12&api_key=D6NtYIn84Pp4G2ZZsGk6jMW1HkU7RCg7dSvqG5eg');
     const astronomyPictureJson = await astronomyPicture.json();
       this.setState({
         astronomyPicture: astronomyPictureJson,
@@ -45,6 +45,21 @@ getAstronomyPicture = async () => {
         console.log(err, 'error in catch block')
         return err
     }
+  }
+
+   getMorePics = async ()=> {
+    try{
+      const morePics = await fetch('https://api.nasa.gov/planetary/apod?count=12&api_key=D6NtYIn84Pp4G2ZZsGk6jMW1HkU7RCg7dSvqG5eg')
+      const morePicsJson = await morePics.json();
+        this.setState({
+          astronomyPicture: morePicsJson,
+        }); 
+        return morePicsJson
+    }
+    catch (err) {
+      console.log(err, 'error catched')
+      return err
+    }  
   }
 
 
@@ -87,6 +102,9 @@ getAstronomyPicture = async () => {
             <Dropdown.Item>List Item</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
+        <Menu.Item>
+          <p className='WelcomeUsername'>Welcome {this.props.users[0].username}</p>
+        </Menu.Item>
       </Container>
     </Menu>
 
@@ -95,7 +113,7 @@ getAstronomyPicture = async () => {
     <Container className='ImageContainer'>
         <Header as='h1'>Semantic UI React Fixed Template</Header>
           <Route exact path="/home" render={(props) => <Home astronomyPicture={this.state.astronomyPicture} {...props} /> }/>
-          <Route path="/explore" render={(props) => <Explore astronomyPicture={this.state.astronomyPicture} {...props} /> }/>
+          <Route path="/explore" render={(props) => <Explore astronomyPicture={this.state.astronomyPicture} getMorePics={this.getMorePics} {...props} /> }/>
           <Route path="/profile" render={(props) => <Profile astronomyPicture={this.state.astronomyPicture} users={this.props.users} {...props} /> }/>  
     </Container>
 
@@ -120,7 +138,6 @@ getAstronomyPicture = async () => {
         </Grid>
 
         <Divider inverted section />
-        <Image centered size='mini' src='/logo.png' />
         <List horizontal inverted divided link size='small'>
           <List.Item as='a' href='#'>
             Site Map

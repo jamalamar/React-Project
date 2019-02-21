@@ -36,6 +36,12 @@ body{
   background-color: #000000;
 }
 
+.Login{
+  top: 50px;
+  left: 25%;
+  width: 50%;
+}
+
 .Explore{
   font-size: 60px;
 }
@@ -46,6 +52,12 @@ body{
 
 .Profile{
   font-size: 60px;
+}
+
+.WelcomeUsername{
+  font-size: 18px;
+  position: relative;
+  margin-left: 350px;
 }
 
 .HomeImage{
@@ -70,6 +82,11 @@ body{
   color: #fdfffc;
   position: relative;
   bottom: 50px;
+  opacity: 0.7;
+}
+
+.TitleInsideImage{
+  font-size: 20px;
 }
 
 .ImageContainer{
@@ -120,7 +137,7 @@ h3{
   color: #000000;
   align-content: center;
   padding-right: 25%;
-  padding-left: 25%
+  padding-left: 25%;
 }
 
 .HomeLi{
@@ -129,6 +146,10 @@ h3{
     border-radius: 2%;
     padding: 20px;
 }
+
+.Buttons{
+  padding-top: 50px;
+ }
 
 
 

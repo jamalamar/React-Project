@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Divider, Grid, Header, Icon } from 'semantic-ui-react'
+import { Container, Divider, Grid, Header, Icon, Button } from 'semantic-ui-react'
 
 
 class Explore extends Component {
@@ -14,13 +14,14 @@ class Explore extends Component {
   	})
     
     return (
-      <div style={{height: '700px', overflow: 'auto'}}>
+      <div >
         <h2 className="Explore">Explore</h2>
   			<Grid columns='equal' >
 		      <Grid.Row columns='equal'>
 					{astroPicComposed}
 		      </Grid.Row>
 			</Grid>
+      <Button onClick={this.props.getMorePics}>Get More</Button>
       </div>
     );
   }
