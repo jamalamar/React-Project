@@ -103,7 +103,7 @@ getAstronomyPicture = async () => {
           </Dropdown.Menu>
         </Dropdown>
         <Menu.Item>
-          <p className='WelcomeUsername'>Welcome {this.props.users[0].username}</p>
+          <p className='WelcomeUsername'>Welcome {this.props.username}</p>
         </Menu.Item>
       </Container>
     </Menu>

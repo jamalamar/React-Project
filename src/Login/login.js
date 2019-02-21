@@ -24,7 +24,8 @@ class Login extends Component {
       this.props.users.forEach((element)=>{
         if(element.username===this.state.username){
           this.props.login(this.state.username)
-        }else (console.log("Invalid Username or Password"))
+        }else (this.setState({username: "Invalid Username"}))
+
       })
     }
 
