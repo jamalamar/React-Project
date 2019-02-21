@@ -12,6 +12,7 @@ class App extends Component {
     }
 
     login = (username) => {
+      console.log(this)
       this.setState({
         logged: true,
         username: username
@@ -43,7 +44,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      {this.state.logged ? <MainContainer users={this.state.users}/> : <Login login={this.login}/>}
+      {this.state.logged ? <MainContainer users={this.state.users}/> : <Login login={this.login} users={this.state.users}/>}
       </div>
     );
   }
