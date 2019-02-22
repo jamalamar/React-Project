@@ -22,7 +22,7 @@ class Login extends Component {
 
     auth = () => {
       this.props.users.forEach((element)=>{
-        if(element.username===this.state.username){
+        if(element.username===this.state.username&&element.password===this.state.password){
           this.props.login(element.username)
           this.props.changeId(element.user_id)
         }else (this.setState({username: "Invalid Username"}))
