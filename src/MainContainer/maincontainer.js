@@ -115,7 +115,7 @@ getAstronomyPicture = async () => {
 
     <Container className='ImageContainer'>
         <Header as='h1'>Semantic UI React Fixed Template</Header>
-          <Route exact path="/home" render={(props) => <Home astronomyPicture={this.state.astronomyPicture} {...props} /> }/>
+          <Route exact path="/home" render={(props) => <Home astronomyPicture={this.state.astronomyPicture} users={this.props.users} username={this.props.username} user_id={this.props.user_id} {...props} /> }/>
           <Route path="/explore" render={(props) => <Explore astronomyPicture={this.state.astronomyPicture} concatPics={this.concatPics} {...props} /> }/>
           <Route path="/profile" render={(props) => <Profile astronomyPicture={this.state.astronomyPicture} users={this.props.users} {...props} /> }/>  
     </Container>

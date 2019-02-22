@@ -8,7 +8,8 @@ class App extends Component {
     state = {
       users: [],
         logged: false,
-        username: ''
+        username: '',
+        user_id: 0
     }
 
     login = (username) => {
@@ -18,6 +19,13 @@ class App extends Component {
         username: username
     })
   }
+
+    changeId = ( user_id) => {
+        console.log(this)
+        this.setState({
+          user_id: user_id
+      })
+    }
 
 
   getUsers = async () => {
@@ -44,7 +52,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      {this.state.logged ? <MainContainer users={this.state.users} username={this.state.username}/> : <Login login={this.login} users={this.state.users}/>}
+      {this.state.logged ? <MainContainer users={this.state.users} username={this.state.username} user_id={this.state.user_id}/> : <Login login={this.login} changeId={this.changeId} users={this.state.users}/>}
       </div>
     );
   }
