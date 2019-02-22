@@ -27,9 +27,8 @@ import Profile from './Profile/profile.js'
 
 class MainContainer extends Component {
     state = {
-    astronomyPicture: []
-
-  }
+      astronomyPicture: []
+    }
 
 
 getAstronomyPicture = async () => {
@@ -47,26 +46,30 @@ getAstronomyPicture = async () => {
     }
   }
 
-   getMorePics = async ()=> {
-    try{
-      const morePics = await fetch('https://api.nasa.gov/planetary/apod?count=12&api_key=D6NtYIn84Pp4G2ZZsGk6jMW1HkU7RCg7dSvqG5eg')
-      const morePicsJson = await morePics.json();
-        this.setState({
-          astronomyPicture: morePicsJson,
-        }); 
+    getMorePics = async ()=> {
+      try{
+      const response = await fetch('https://api.nasa.gov/planetary/apod?count=12&api_key=D6NtYIn84Pp4G2ZZsGk6jMW1HkU7RCg7dSvqG5eg');
+      const morePicsJson = await response.json();
         return morePicsJson
+      }catch (err) {
+        console.log(err)
+        return err
+      }
     }
-    catch (err) {
-      console.log(err, 'error catched')
-      return err
-    }  
-  }
+
+    concatPics = ()=>{
+      this.getMorePics()
+        .then((data) => data.forEach((element)=>{
+          this.state.astronomyPicture.push(element)
+        }))
+          .then(console.log(this.state.astronomyPicture))
+    }
 
 
   componentDidMount(){
       this.getAstronomyPicture()
       .then((data) => console.log(data, ' from APOD API'));
-    }
+    } 
 
 
   render() {
@@ -113,7 +116,7 @@ getAstronomyPicture = async () => {
     <Container className='ImageContainer'>
         <Header as='h1'>Semantic UI React Fixed Template</Header>
           <Route exact path="/home" render={(props) => <Home astronomyPicture={this.state.astronomyPicture} {...props} /> }/>
-          <Route path="/explore" render={(props) => <Explore astronomyPicture={this.state.astronomyPicture} getMorePics={this.getMorePics} {...props} /> }/>
+          <Route path="/explore" render={(props) => <Explore astronomyPicture={this.state.astronomyPicture} concatPics={this.concatPics} {...props} /> }/>
           <Route path="/profile" render={(props) => <Profile astronomyPicture={this.state.astronomyPicture} users={this.props.users} {...props} /> }/>  
     </Container>
 

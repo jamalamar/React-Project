@@ -3,6 +3,7 @@ import { Container, Divider, Grid, Header, Icon, Button } from 'semantic-ui-reac
 
 
 class Explore extends Component {
+
   render() {
   	
   	const astroPicComposed = this.props.astronomyPicture.map((item, index)=>{
@@ -21,7 +22,7 @@ class Explore extends Component {
 					{astroPicComposed}
 		      </Grid.Row>
 			</Grid>
-      <Button onClick={this.props.getMorePics}>Get More</Button>
+      <Button onClick={this.props.concatPics}>Get More</Button>
       </div>
     );
   }
